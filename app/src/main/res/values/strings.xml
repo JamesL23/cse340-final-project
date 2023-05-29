@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Final Project</string>
+    <string name="hamburger_menu">Hamburger Menu</string>
+    <string name="exit">Exit</string>
 </resources>
