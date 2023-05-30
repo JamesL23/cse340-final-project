@@ -12,14 +12,15 @@ import java.util.List;
 @SuppressLint("ViewConstructor")
 public class ExerciseCardView extends FrameLayout {
 
-    public ExerciseCardView(Context context, String exerciseName, List<String> sets) {
+    public ExerciseCardView(Context context, ExerciseBlock e) {
         super(context);
         LayoutInflater inflater = LayoutInflater.from(context);
         inflater.inflate(R.layout.exercise_card, this, true);
         TextView nameField = findViewById(R.id.exercise_name);
-        nameField.setText(exerciseName);
+        nameField.setText(e.getExercise());
 
         LinearLayout setsList = findViewById(R.id.sets_list);
+        List<String> sets = e.getSets();
         for (String s : sets) {
             TextView currSet = new TextView(context);
             currSet.setText(s);

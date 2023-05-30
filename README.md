@@ -2,7 +2,8 @@
 
 ## Configuration Settings
 
-_Include any gradle or configuration settings that are required for your libraries or app to work_
+This application uses of version 2.8.9 of Google's Gson library to save and load data between
+sessions.
 
 ## API Key
 

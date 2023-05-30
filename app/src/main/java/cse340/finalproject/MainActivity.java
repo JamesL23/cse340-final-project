@@ -2,10 +2,16 @@ package cse340.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
@@ -13,9 +19,24 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static final String SHARED_PREFERENCES_EXERCISE_LOG_KEY = "logKey";
+
+    private List<ExerciseBlock> currentLog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences pref = getPreferences(MODE_PRIVATE);
+        // https://stackoverflow.com/a/28107791
+        String serializedExerciseLog = pref.getString(SHARED_PREFERENCES_EXERCISE_LOG_KEY, null);
+        if (serializedExerciseLog != null) {
+            Gson gson = new Gson();
+            Type type = new TypeToken<List<ExerciseBlock>>(){}.getType();
+            currentLog = gson.fromJson(serializedExerciseLog, type);
+        } else {
+            currentLog = new LinkedList<>();
+        }
         setContentView(R.layout.activity_main);
 
         // https://www.tutorialkart.com/java/how-to-get-current-date-in-yyyy-mm-dd-format-in-java/#gsc.tab=0
@@ -29,10 +50,19 @@ public class MainActivity extends AppCompatActivity {
         // saving and editing one workout session because I really am running out of time
 
         LinearLayout cardContainer = findViewById(R.id.exercise_cards_container);
-        List<String> sets = new LinkedList<>();
-        for (int i = 0; i < 50; i++) {
-            sets.add("Set " + (i + 1));
+        for (ExerciseBlock e : currentLog) {
+            cardContainer.addView(new ExerciseCardView(this, e));
         }
-        cardContainer.addView(new ExerciseCardView(this, "Beans", sets));
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // https://stackoverflow.com/a/28107791
+        SharedPreferences.Editor prefEdit = getPreferences(MODE_PRIVATE).edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(currentLog);
+        prefEdit.putString(SHARED_PREFERENCES_EXERCISE_LOG_KEY, json);
+        prefEdit.apply();
     }
 }
