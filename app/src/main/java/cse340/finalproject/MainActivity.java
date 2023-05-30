@@ -3,8 +3,10 @@ package cse340.finalproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -48,10 +50,19 @@ public class MainActivity extends AppCompatActivity {
         currDate.setText("TODAY"); // TODO: REPLACE WITH ACTUAL CURRENT DATE
         // There's a good chance the calendar stuff never gets featured and we only end up
         // saving and editing one workout session because I really am running out of time
-
         LinearLayout cardContainer = findViewById(R.id.exercise_cards_container);
         for (ExerciseBlock e : currentLog) {
+            // add exercise card
             cardContainer.addView(new ExerciseCardView(this, e));
+
+            // add divider
+            View viewDivider = new View(this);
+            LinearLayout.LayoutParams params =
+                    new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                            (int) getResources().getDimension(R.dimen.divider_thickness));
+            viewDivider.setLayoutParams(params);
+            viewDivider.setBackgroundColor(Color.BLACK);
+            cardContainer.addView(viewDivider);
         }
     }
 
