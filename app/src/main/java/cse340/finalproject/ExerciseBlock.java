@@ -14,6 +14,11 @@ public class ExerciseBlock {
         this.sets.addAll(sets);
     }
 
+    public ExerciseBlock(String exercise) {
+        this.exercise = exercise;
+        this.sets = new LinkedList<>();
+    }
+
     public String getExercise() {
         return exercise;
     }
