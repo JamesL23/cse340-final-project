@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         SharedPreferences pref = getPreferences(MODE_PRIVATE);
         // https://stackoverflow.com/a/28107791
@@ -39,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             currentLog = new LinkedList<>();
         }
-        setContentView(R.layout.activity_main);
 
         // https://www.tutorialkart.com/java/how-to-get-current-date-in-yyyy-mm-dd-format-in-java/#gsc.tab=0
 //        LocalDate dateObj = LocalDate.now();
