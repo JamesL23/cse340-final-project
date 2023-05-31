@@ -2,11 +2,11 @@ package cse340.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
@@ -14,8 +14,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -59,11 +57,15 @@ public class MainActivity extends AppCompatActivity {
             View viewDivider = new View(this);
             LinearLayout.LayoutParams params =
                     new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
-                            (int) getResources().getDimension(R.dimen.divider_thickness));
+                            (int) getResources().getDimension(R.dimen.subdivider_thickness));
             viewDivider.setLayoutParams(params);
             viewDivider.setBackgroundColor(Color.BLACK);
             cardContainer.addView(viewDivider);
         }
+
+        findViewById(R.id.fab_add_exercise).setOnClickListener(
+                this::startAddExerciseIntent
+        );
     }
 
     @Override
@@ -75,5 +77,17 @@ public class MainActivity extends AppCompatActivity {
         String json = gson.toJson(currentLog);
         prefEdit.putString(SHARED_PREFERENCES_EXERCISE_LOG_KEY, json);
         prefEdit.apply();
+    }
+
+    /**
+     * Store the id of the view that was just pressed in the bundle, then switch to the
+     * Choose Contacts screen for the next step.
+     * @param view The text view that was just clicked by the user. This will have the request
+     *             name that will be sent.
+     */
+    private void startAddExerciseIntent(View view) {
+        // Borrowed from AS3-Accessibility
+        Intent intent = new Intent(this, AddExerciseActivity.class);
+        startActivity(intent);
     }
 }

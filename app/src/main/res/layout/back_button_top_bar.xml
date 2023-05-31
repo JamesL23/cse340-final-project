@@ -3,22 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="@dimen/button_size"
     tools:context=".MainActivity">
 
     <ImageButton
         android:id="@+id/exit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+        android:layout_width="@dimen/button_size"
+        android:layout_height="@dimen/button_size"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/arrow_left"
         android:contentDescription="@string/exit"/>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/back_button_top_bar_text"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="20"
         android:text="Test"
         android:textSize="20sp" />
     <!-- TODO: REMOVE TEST TEXT-->

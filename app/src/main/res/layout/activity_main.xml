@@ -60,7 +60,7 @@
         android:id="@+id/main_screen_top_bar_divider"
         app:layout_constraintTop_toBottomOf="@id/main_screen_top_bar"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
+        android:layout_height="@dimen/divider_thickness"
         android:background="@color/black" />
 
     <ScrollView
@@ -78,4 +78,13 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_add_exercise"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:contentDescription="Add Exercise"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+    <!-- TODO: REPLACE THIS WITH STATIC STRING VALUE -->
 </androidx.constraintlayout.widget.ConstraintLayout>

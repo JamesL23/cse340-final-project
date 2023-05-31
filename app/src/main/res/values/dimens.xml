@@ -1,5 +1,6 @@
 <resources>
     <dimen name="button_size">60dp</dimen>
     <dimen name="card_height">100dp</dimen>
-    <dimen name="divider_thickness">1dp</dimen>
+    <dimen name="divider_thickness">2dp</dimen>
+    <dimen name="subdivider_thickness">1dp</dimen>
 </resources>
