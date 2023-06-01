@@ -88,6 +88,15 @@
 
     </ScrollView>
 
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/fab_add_exercise"
+        app:layout_constraintEnd_toEndOf="@id/fab_add_exercise"
+        app:layout_constraintBottom_toTopOf="@id/fab_add_exercise"
+        android:text="@string/new_text"/>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_exercise"
         android:layout_height="wrap_content"

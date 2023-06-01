@@ -8,4 +8,5 @@
     <string name="number_reps"># of Reps</string>
     <string name="number_sets"># of Sets</string>
     <string name="amount_weight">Amount of weight</string>
+    <string name="new_text">New…</string>
 </resources>
