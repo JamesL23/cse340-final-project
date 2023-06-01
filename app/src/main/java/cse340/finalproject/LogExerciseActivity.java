@@ -2,8 +2,11 @@ package cse340.finalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,24 +44,59 @@ public class LogExerciseActivity extends AppCompatActivity {
         back.setOnClickListener(v -> finish());
 
         Button save = findViewById(R.id.save_button);
-        save.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(v.getContext(), MainActivity.class);
-                        // https://stackoverflow.com/questions/7075349/android-clear-activity-stack
-                        String exerciseName = mExerciseInfo.getString("name");
-                        String info =  getResources().getString(R.string.block_info, sets, reps,
-                                weight);
+        save.setOnClickListener(v -> {
+                    Intent intent = new Intent(v.getContext(), MainActivity.class);
+                    // https://stackoverflow.com/questions/7075349/android-clear-activity-stack
+                    String exerciseName = mExerciseInfo.getString("name");
+                    String info =  getResources().getString(R.string.block_info, sets, reps,
+                            weight);
 
-                        Bundle updateInfo = new Bundle();
-                        updateInfo.putString("name", exerciseName);
-                        updateInfo.putString("info", info);
-                        intent.putExtras(updateInfo);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(intent);
+                    Bundle updateInfo = new Bundle();
+                    updateInfo.putString("name", exerciseName);
+                    updateInfo.putString("info", info);
+                    intent.putExtras(updateInfo);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                });
+
+        // Update from fields
+        EditText setsField = findViewById(R.id.sets_field);
+        setsField.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        sets = s.toString();
                     }
-                }
-        );
+
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                    @Override
+                    public void afterTextChanged(Editable s) {}
+                });
+
+        EditText repsField = findViewById(R.id.reps_field);
+        repsField.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        reps = s.toString();
+                    }
+
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                    @Override
+                    public void afterTextChanged(Editable s) {}
+                });
+
+        EditText weightField = findViewById(R.id.weight_field);
+        weightField.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        weight = s.toString();
+                    }
+
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+                    @Override
+                    public void afterTextChanged(Editable s) {}
+                });
     }
 }

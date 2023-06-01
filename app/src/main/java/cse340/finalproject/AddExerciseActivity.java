@@ -66,6 +66,7 @@ public class AddExerciseActivity extends AppCompatActivity {
         addNew.setText(getResources().getString(R.string.add_new_exercise));
         addNew.setTextSize(getResources().getDimension(R.dimen.exercise_choice_text_size));
         addNew.setHeight((int) getResources().getDimension(R.dimen.exercise_choice_height));
+        // https://stackoverflow.com/questions/6200533/how-to-set-textview-textstyle-such-as-bold-italic
         addNew.setTypeface(null, Typeface.ITALIC);
         addNew.setOnClickListener(v -> unimplemented());
         options.addView(addNew);
