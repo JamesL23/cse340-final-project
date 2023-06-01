@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Final Project</string>
+    <string name="app_name">James Liu\'s \"Context-aware\" Workout Tracker</string>
     <string name="hamburger_menu">Hamburger Menu</string>
     <string name="exit">Exit</string>
     <string name="add_exercise_screen_title">Add an Exercise</string>
