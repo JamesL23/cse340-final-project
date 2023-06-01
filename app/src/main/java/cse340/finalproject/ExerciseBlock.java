@@ -26,4 +26,8 @@ public class ExerciseBlock {
     public List<String> getSets() {
         return sets;
     }
+
+    public boolean addSet(String set) {
+        return sets.add(set);
+    }
 }

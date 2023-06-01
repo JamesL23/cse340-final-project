@@ -43,10 +43,33 @@ public class MainActivity extends AppCompatActivity {
         if (extras != null
                 && extras.containsKey("name")
                 && extras.containsKey("info")) {
-            List<String> info = new LinkedList<>();
-            info.add(extras.getString("info"));
-            ExerciseBlock e = new ExerciseBlock(extras.getString("name"), info);
-            currentLog.add(e);
+            String name = extras.getString("name");
+            String info = extras.getString("info");
+
+            // If I had more time I would better optimize my data structure
+            // usage to avoid this O(n) lookup on adding every exercise.
+            // However, for this prototype demo there are only three hard-coded
+            // options for exercises, so the currentLog should never be more than
+            // 3 long anyway and this shouldn't be TOO bad (hopefully)...
+
+            // oh man this flag thing is kind of gross but I can't think of a better
+            // way to do this off the top of my head without reworking a bunch of
+            // other stuff that isn't super high priority
+
+            // The idea here is that if you add an exercise that's already in the log
+            // it will just group with that instead of making an entirely new card.
+            boolean found = false;
+            for (ExerciseBlock e : currentLog) {
+                if (e.getExercise().equals(name)) {
+                    e.addSet(info);
+                    found = true;
+                }
+            }
+            if (!found) {
+                List<String> newBlockList = new LinkedList<>();
+                newBlockList.add(info);
+                currentLog.add(new ExerciseBlock(name, newBlockList));
+            }
         }
 
         // https://www.tutorialkart.com/java/how-to-get-current-date-in-yyyy-mm-dd-format-in-java/#gsc.tab=0
@@ -76,6 +99,16 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.fab_add_exercise).setOnClickListener(
                 v -> startAddExerciseIntent()
         );
+
+        findViewById(R.id.main_screen_menu_button).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // TODO this should not clearAll
+                        clearAll();
+                    }
+                }
+        );
     }
 
     @Override
@@ -96,5 +129,17 @@ public class MainActivity extends AppCompatActivity {
         // Borrowed from AS3-Accessibility
         Intent intent = new Intent(this, AddExerciseActivity.class);
         startActivity(intent);
+    }
+
+    /**
+     * Delete everything in current log (including shared preferences) and update view
+     */
+    private void clearAll() {
+        currentLog.clear();
+        SharedPreferences.Editor prefEdit = getPreferences(MODE_PRIVATE).edit();
+        prefEdit.clear();
+        prefEdit.apply();
+        LinearLayout cardContainer = findViewById(R.id.exercise_cards_container);
+        cardContainer.removeAllViews();
     }
 }
