@@ -18,7 +18,5 @@
         android:id="@+id/back_button_top_bar_text"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="Test"
-        android:textSize="20sp" />
-    <!-- TODO: REMOVE TEST TEXT-->
+        android:textSize="@dimen/top_text_size" />
 </LinearLayout>

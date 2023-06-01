@@ -19,6 +19,12 @@ public class AddExerciseActivity extends AppCompatActivity {
             Arrays.asList("Back squat", "Bench press", "Deadlift"));;
 
     /**
+     * Bundle used to transfer name of selected exercise to the log exercise screen.
+     * Borrowed from AS3 Accessibility
+     */
+    private Bundle mExerciseInfo;
+
+    /**
      * Callback that is called when the activity is first created.
      * @param savedInstanceState contains the activity's previously saved state.
      */
@@ -29,6 +35,9 @@ public class AddExerciseActivity extends AppCompatActivity {
 
         TextView title = findViewById(R.id.back_button_top_bar_text);
         title.setText(getResources().getString(R.string.add_exercise_screen_title));
+
+        mExerciseInfo = new Bundle();
+        mExerciseInfo.putString("name", "none");
 
         LinearLayout options = findViewById(R.id.add_exercise_options);
         for (String s : EXERCISES) {
@@ -58,6 +67,9 @@ public class AddExerciseActivity extends AppCompatActivity {
     private void startLogExerciseIntent(View view) {
         // Borrowed from AS3-Accessibility
         Intent intent = new Intent(this, LogExerciseActivity.class);
+        String exercise =  ((TextView)view).getText().toString();
+        mExerciseInfo.putString("name", exercise);
+        intent.putExtras(mExerciseInfo);
         startActivity(intent);
     }
 }

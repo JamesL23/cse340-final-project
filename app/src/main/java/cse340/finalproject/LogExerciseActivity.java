@@ -1,12 +1,14 @@
 package cse340.finalproject;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LogExerciseActivity extends AppCompatActivity {
+
+    /** Bundle used to transfer name of selected exercise to the log exercise screen **/
+    private Bundle mExerciseInfo;
 
     /**
      * Callback that is called when the activity is first created.
@@ -16,6 +18,13 @@ public class LogExerciseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_exercise_activity);
+
+        mExerciseInfo = getIntent().getExtras();
+
+        TextView title = findViewById(R.id.back_button_top_bar_text);
+        title.setText(getResources().getString(R.string.logging_exercise_title,
+                mExerciseInfo.getString("name")));
+
 
     }
 }

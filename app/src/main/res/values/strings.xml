@@ -4,4 +4,8 @@
     <string name="exit">Exit</string>
     <string name="add_exercise_screen_title">Add an Exercise</string>
     <string name="record_exercise_fab">Record a New Exercise</string>
+    <string name="logging_exercise_title">Logging: %1$s</string>
+    <string name="number_reps"># of Reps</string>
+    <string name="number_sets"># of Sets</string>
+    <string name="amount_weight">Amount of weight</string>
 </resources>
