@@ -60,6 +60,7 @@ public class LogExerciseActivity extends AppCompatActivity {
                 });
 
         // Update from fields
+        // https://stackoverflow.com/questions/20824634/android-on-text-change-listener
         EditText setsField = findViewById(R.id.sets_field);
         setsField.addTextChangedListener(new TextWatcher() {
                     @Override
