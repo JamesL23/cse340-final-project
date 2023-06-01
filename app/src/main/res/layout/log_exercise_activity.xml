@@ -36,7 +36,7 @@
                 app:layout_constraintEnd_toStartOf="@id/reps_field"
                 android:text="@string/number_reps"
                 android:textSize="@dimen/text_field_text_size"/>
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/reps_field"
                 android:layout_width="@dimen/text_field_width"
                 android:layout_height="@dimen/text_field_height"
@@ -104,7 +104,7 @@
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save" />
+            android:text="@string/save" />
     </LinearLayout>
 
 
