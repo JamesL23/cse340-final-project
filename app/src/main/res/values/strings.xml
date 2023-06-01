@@ -14,4 +14,5 @@
     <string name="add_new_exercise"><i>Add new exercise…</i></string>
 
     <string name="unimplemented">Not yet implemented</string>
+    <string name="clear_all">Cleared!</string>
 </resources>

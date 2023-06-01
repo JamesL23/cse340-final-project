@@ -44,9 +44,11 @@ public class AddExerciseActivity extends AppCompatActivity {
 
         LinearLayout options = findViewById(R.id.add_exercise_options);
         for (String s : EXERCISES) {
-            // add exercise card
+            // add exercise name
             TextView curr = new TextView(this);
             curr.setText(s);
+            curr.setTextSize(getResources().getDimension(R.dimen.exercise_choice_text_size));
+            curr.setHeight((int) getResources().getDimension(R.dimen.exercise_choice_height));
             curr.setOnClickListener(this::startLogExerciseIntent);
             options.addView(curr);
 
@@ -62,6 +64,8 @@ public class AddExerciseActivity extends AppCompatActivity {
 
         TextView addNew = new TextView(this);
         addNew.setText(getResources().getString(R.string.add_new_exercise));
+        addNew.setTextSize(getResources().getDimension(R.dimen.exercise_choice_text_size));
+        addNew.setHeight((int) getResources().getDimension(R.dimen.exercise_choice_height));
         addNew.setTypeface(null, Typeface.ITALIC);
         addNew.setOnClickListener(v -> unimplemented());
         options.addView(addNew);
