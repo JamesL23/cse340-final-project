@@ -80,10 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Store the id of the view that was just pressed in the bundle, then switch to the
-     * Choose Contacts screen for the next step.
-     * @param view The text view that was just clicked by the user. This will have the request
-     *             name that will be sent.
+     * Switch to the Add Exercise screen
      */
     private void startAddExerciseIntent() {
         // Borrowed from AS3-Accessibility
