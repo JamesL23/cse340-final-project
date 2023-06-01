@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         findViewById(R.id.fab_add_exercise).setOnClickListener(
-                this::startAddExerciseIntent
+                v -> startAddExerciseIntent()
         );
     }
 
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
      * @param view The text view that was just clicked by the user. This will have the request
      *             name that will be sent.
      */
-    private void startAddExerciseIntent(View view) {
+    private void startAddExerciseIntent() {
         // Borrowed from AS3-Accessibility
         Intent intent = new Intent(this, AddExerciseActivity.class);
         startActivity(intent);

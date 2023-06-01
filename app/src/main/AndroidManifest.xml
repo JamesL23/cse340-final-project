@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".AddExerciseActivity" />
+        <activity android:name=".LogExerciseActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

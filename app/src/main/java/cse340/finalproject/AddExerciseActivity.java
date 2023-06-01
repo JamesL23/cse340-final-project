@@ -1,5 +1,6 @@
 package cse340.finalproject;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -34,14 +35,7 @@ public class AddExerciseActivity extends AppCompatActivity {
             // add exercise card
             TextView curr = new TextView(this);
             curr.setText(s);
-            curr.setOnClickListener(
-                    new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // TODO: Go to log exercise screen
-                        }
-                    }
-            );
+            curr.setOnClickListener(this::startLogExerciseIntent);
             options.addView(curr);
 
             // add divider
@@ -53,5 +47,17 @@ public class AddExerciseActivity extends AppCompatActivity {
             viewDivider.setBackgroundColor(Color.BLACK);
             options.addView(viewDivider);
         }
+    }
+
+    /**
+     * Store the id of the view that was just pressed in the bundle, then switch to the
+     * Log Exercise screen for the next step.
+     * @param view The text view that was just clicked by the user. This will have the request
+     *             name that will be sent.
+     */
+    private void startLogExerciseIntent(View view) {
+        // Borrowed from AS3-Accessibility
+        Intent intent = new Intent(this, LogExerciseActivity.class);
+        startActivity(intent);
     }
 }
