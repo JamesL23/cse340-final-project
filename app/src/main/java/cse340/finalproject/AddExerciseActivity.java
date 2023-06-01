@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -56,6 +57,10 @@ public class AddExerciseActivity extends AppCompatActivity {
             viewDivider.setBackgroundColor(Color.BLACK);
             options.addView(viewDivider);
         }
+
+        ImageButton back = findViewById(R.id.exit_button);
+        // https://stackoverflow.com/questions/14848590/return-back-to-mainactivity-from-another-activity
+        back.setOnClickListener(v -> finish());
     }
 
     /**
