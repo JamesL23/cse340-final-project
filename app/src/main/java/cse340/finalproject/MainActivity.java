@@ -156,6 +156,8 @@ public class MainActivity extends AppCompatActivity {
         prefEdit.apply();
         LinearLayout cardContainer = findViewById(R.id.exercise_cards_container);
         cardContainer.removeAllViews();
+        Toast.makeText(this, getResources().getString(R.string.clear_all),
+                Toast.LENGTH_SHORT).show();
     }
 
     /**
