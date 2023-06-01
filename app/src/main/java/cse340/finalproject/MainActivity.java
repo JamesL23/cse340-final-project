@@ -39,6 +39,16 @@ public class MainActivity extends AppCompatActivity {
             currentLog = new LinkedList<>();
         }
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null
+                && extras.containsKey("name")
+                && extras.containsKey("info")) {
+            List<String> info = new LinkedList<>();
+            info.add(extras.getString("info"));
+            ExerciseBlock e = new ExerciseBlock(extras.getString("name"), info);
+            currentLog.add(e);
+        }
+
         // https://www.tutorialkart.com/java/how-to-get-current-date-in-yyyy-mm-dd-format-in-java/#gsc.tab=0
 //        LocalDate dateObj = LocalDate.now();
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
