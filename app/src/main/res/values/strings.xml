@@ -11,4 +11,7 @@
     <string name="new_text">New…</string>
     <string name="block_info">%1$s Sets x %2$s Reps @ %3$s Weight</string>
     <string name="save">Save</string>
+    <string name="add_new_exercise"><i>Add new exercise…</i></string>
+
+    <string name="unimplemented">Not yet implemented</string>
 </resources>

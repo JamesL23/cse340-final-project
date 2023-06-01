@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
             // If I had more time I would better optimize my data structure
             // usage to avoid this O(n) lookup on adding every exercise.
-            // However, for this prototype demo there are only three hard-coded
+            // However, for this prototype demo there are only 3 hard-coded
             // options for exercises, so the currentLog should never be more than
             // 3 long anyway and this shouldn't be TOO bad (hopefully)...
 
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
             cardContainer.addView(viewDivider);
         }
 
+        // Buttons
         findViewById(R.id.fab_add_exercise).setOnClickListener(
                 v -> startAddExerciseIntent()
         );
@@ -106,6 +108,19 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         // TODO this should not clearAll
                         clearAll();
+                    }
+                }
+        );
+
+        findViewById(R.id.main_screen_left_arrow).setOnClickListener(v -> unimplemented());
+        findViewById(R.id.main_screen_current_date).setOnClickListener(v -> unimplemented());
+        findViewById(R.id.main_screen_right_arrow).setOnClickListener(v -> unimplemented());
+        findViewById(R.id.main_screen_location_button).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // TODO
+                        unimplemented();
                     }
                 }
         );
@@ -141,5 +156,13 @@ public class MainActivity extends AppCompatActivity {
         prefEdit.apply();
         LinearLayout cardContainer = findViewById(R.id.exercise_cards_container);
         cardContainer.removeAllViews();
+    }
+
+    /**
+     * Show toast denoting that this feature is not yet implemented
+     */
+    private void unimplemented() {
+        Toast.makeText(this, getResources().getString(R.string.unimplemented),
+                Toast.LENGTH_SHORT).show();
     }
 }

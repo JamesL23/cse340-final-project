@@ -2,11 +2,13 @@ package cse340.finalproject;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -58,6 +60,21 @@ public class AddExerciseActivity extends AppCompatActivity {
             options.addView(viewDivider);
         }
 
+        TextView addNew = new TextView(this);
+        addNew.setText(getResources().getString(R.string.add_new_exercise));
+        addNew.setTypeface(null, Typeface.ITALIC);
+        addNew.setOnClickListener(v -> unimplemented());
+        options.addView(addNew);
+
+        // add divider
+        View viewDivider = new View(this);
+        LinearLayout.LayoutParams params =
+                new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                        (int) getResources().getDimension(R.dimen.subdivider_thickness));
+        viewDivider.setLayoutParams(params);
+        viewDivider.setBackgroundColor(Color.BLACK);
+        options.addView(viewDivider);
+
         ImageButton back = findViewById(R.id.exit_button);
         // https://stackoverflow.com/questions/14848590/return-back-to-mainactivity-from-another-activity
         back.setOnClickListener(v -> finish());
@@ -76,5 +93,14 @@ public class AddExerciseActivity extends AppCompatActivity {
         mExerciseInfo.putString("name", exercise);
         intent.putExtras(mExerciseInfo);
         startActivity(intent);
+    }
+
+
+    /**
+     * Show toast denoting that this feature is not yet implemented
+     */
+    private void unimplemented() {
+        Toast.makeText(this, getResources().getString(R.string.unimplemented),
+                Toast.LENGTH_SHORT).show();
     }
 }
