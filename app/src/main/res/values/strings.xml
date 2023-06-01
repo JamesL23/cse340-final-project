@@ -3,4 +3,5 @@
     <string name="hamburger_menu">Hamburger Menu</string>
     <string name="exit">Exit</string>
     <string name="add_exercise_screen_title">Add an Exercise</string>
+    <string name="record_exercise_fab">Record a New Exercise</string>
 </resources>

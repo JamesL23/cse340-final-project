@@ -83,8 +83,7 @@
         android:id="@+id/fab_add_exercise"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:contentDescription="Add Exercise"
+        android:contentDescription="@string/record_exercise_fab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
-    <!-- TODO: REPLACE THIS WITH STATIC STRING VALUE -->
 </androidx.constraintlayout.widget.ConstraintLayout>
