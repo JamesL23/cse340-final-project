@@ -2,13 +2,14 @@
 
 ## Configuration Settings
 
-This application uses of version 2.8.9 of Google's Gson library to save and load data between
-sessions.
+- Google Gson library version 2.8.9: Save and load data between
+sessions
+- Mapbox API version 10.5.0: Display location info
+- Android play services location 19.0.1: Get device location
 
 ## API Key
 
-_Let the course staff know whether or not your app requires an API Key and to whom it was sent
-via email_
+This application requires a public and private Mapbox API key, which has been/will be sent to [TODO]
 
 ## Reading the Code: 
 
