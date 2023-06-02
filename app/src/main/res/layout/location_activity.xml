@@ -12,10 +12,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/actual_location"
-        app:mapbox_cameraTargetLat="40.7128"
-        app:mapbox_cameraTargetLng="-74.0060"
-        app:mapbox_cameraZoom="8.0">
+        app:mapbox_cameraTargetLat="47.6537"
+        app:mapbox_cameraTargetLng="-122.3078"
+        app:mapbox_cameraZoom="16.0">
     </com.mapbox.maps.MapView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
