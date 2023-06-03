@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -43,18 +44,25 @@ public class LogExerciseActivity extends AppCompatActivity {
 
         Button save = findViewById(R.id.save_button);
         save.setOnClickListener(v -> {
-                    Intent intent = new Intent(v.getContext(), MainActivity.class);
-                    // https://stackoverflow.com/questions/7075349/android-clear-activity-stack
-                    String exerciseName = mExerciseInfo.getString("name");
-                    String info =  getResources().getString(R.string.block_info, sets, reps,
-                            weight);
+                    if (sets == null || reps == null || weight == null) {
+                        Toast.makeText(v.getContext(),
+                                v.getContext().getResources().getString(R.string.missing_fields),
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        // Only proceed if all fields filled
+                        Intent intent = new Intent(v.getContext(), MainActivity.class);
+                        // https://stackoverflow.com/questions/7075349/android-clear-activity-stack
+                        String exerciseName = mExerciseInfo.getString("name");
+                        String info = getResources().getString(R.string.block_info, sets, reps,
+                                weight);
 
-                    Bundle updateInfo = new Bundle();
-                    updateInfo.putString("name", exerciseName);
-                    updateInfo.putString("info", info);
-                    intent.putExtras(updateInfo);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                        Bundle updateInfo = new Bundle();
+                        updateInfo.putString("name", exerciseName);
+                        updateInfo.putString("info", info);
+                        intent.putExtras(updateInfo);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                        startActivity(intent);
+                    }
                 });
 
         // Update from fields
