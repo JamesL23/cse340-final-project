@@ -18,6 +18,11 @@
         location is set, the application will send a notification if it detects you are within 50
         meters of that location.\n(Feature not implemented in demo)
     </string>
+    <string name="enable_location_instructions">Please enable Location Permissions in App Settings in order to use GPS Location Tracking.</string>
+    <string name="location_required">Location Permissions Required.</string>
+    <string name="location_reminder">Please enable Location to use this feature.</string>
+    <string name="go_to_settings">Go To Settings</string>
+    <string name="cancel">Cancel</string>
 
     <string name="unimplemented">Not yet implemented</string>
     <string name="clear_all">Cleared!</string>

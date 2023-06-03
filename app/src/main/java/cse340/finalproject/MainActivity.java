@@ -1,11 +1,19 @@
 package cse340.finalproject;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -23,6 +31,30 @@ public class MainActivity extends AppCompatActivity {
     private static final String SHARED_PREFERENCES_EXERCISE_LOG_KEY = "logKey";
 
     private List<ExerciseBlock> currentLog;
+
+    /**
+     * Grant permission popup asking users to grant location accesses.
+     *
+     * Original Source: https://developer.android.com/training/location/permissions
+     * Found from sensing-and-location exercise
+     */
+    private final ActivityResultLauncher<String[]> locationPermissionRequest =
+            registerForActivityResult(new ActivityResultContracts
+                            .RequestMultiplePermissions(), result -> {
+                        Boolean fineLocationGranted = result.getOrDefault(
+                                Manifest.permission.ACCESS_FINE_LOCATION, false);
+                        Boolean coarseLocationGranted = result.getOrDefault(
+                                Manifest.permission.ACCESS_COARSE_LOCATION,false);
+                        if (fineLocationGranted != null && fineLocationGranted
+                            && coarseLocationGranted != null && coarseLocationGranted) {
+                            // Precise and coarse location access granted--go to location activity
+                            Intent intent = new Intent(this, LocationActivity.class);
+                            startActivity(intent);
+                        } else {
+                            showPermissionDeniedAlert();
+                        }
+                    }
+            );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,8 +151,23 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(v.getContext(), LocationActivity.class);
-                        startActivity(intent);
+                        // Only proceed to location activity if location permissions granted
+                        // otherwise, request permissions
+                        if (ActivityCompat.checkSelfPermission(v.getContext(),
+                                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+                                ActivityCompat.checkSelfPermission(v.getContext(),
+                                        Manifest.permission.ACCESS_COARSE_LOCATION) ==
+                                        PackageManager.PERMISSION_GRANTED) {
+                            // Granted; proceed to location activity
+                            Intent intent = new Intent(v.getContext(), LocationActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // Request permissions
+                            locationPermissionRequest.launch(new String[] {
+                                    Manifest.permission.ACCESS_FINE_LOCATION,
+                                    Manifest.permission.ACCESS_COARSE_LOCATION
+                            });
+                        }
                     }
                 }
         );
@@ -158,6 +205,38 @@ public class MainActivity extends AppCompatActivity {
         cardContainer.removeAllViews();
         Toast.makeText(this, getResources().getString(R.string.clear_all),
                 Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Check whether the user has granted location permissions, request if not
+     *
+     * @return true if location permissions granted, false otherwise
+     */
+    private boolean checkLocationPermissions() {
+        return false;
+    }
+
+    /**
+     *  Raise an Alert if the user denied location permissions.
+     *
+     *  Borrowed from sensing-and-location exercise
+     */
+    private void showPermissionDeniedAlert() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setPositiveButton(getString(R.string.go_to_settings),
+                (dialog, id) -> {
+                    Intent settingsIntent =
+                            new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    Uri uri = Uri.fromParts("package", getPackageName(), null);
+                    settingsIntent.setData(uri);
+                    startActivity(settingsIntent);
+                });
+        builder.setNegativeButton(getString(R.string.cancel), (dialog, id) ->
+                Toast.makeText(this, getString(R.string.location_reminder),
+                        Toast.LENGTH_SHORT).show());
+        builder.setMessage(getString(R.string.enable_location_instructions))
+                .setTitle(getString(R.string.location_required));
+        builder.show();
     }
 
     /**
