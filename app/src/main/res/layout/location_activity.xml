@@ -5,16 +5,99 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/location_top_bar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/exit_button"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            android:scaleType="fitCenter"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/arrow_left"
+            android:contentDescription="@string/exit"/>
+
+        <TextView
+            android:id="@+id/back_button_top_bar_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toEndOf="@id/exit_button"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="@dimen/top_text_size" />
+
+        <ImageView
+            android:id="@+id/info_icon"
+            android:layout_width="@dimen/button_size"
+            android:layout_height="@dimen/button_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/information_outline"
+            android:contentDescription="@string/exit"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    TODO Add switch to enable location -->
+
     <com.mapbox.maps.MapView
         android:id="@+id/map_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/location_top_bar"
+        app:layout_constraintBottom_toTopOf="@id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:mapbox_cameraTargetLat="47.6537"
         app:mapbox_cameraTargetLng="-122.3078"
         app:mapbox_cameraZoom="16.0">
     </com.mapbox.maps.MapView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/findMyLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        android:tint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/zoomIn"
+        app:layout_constraintEnd_toEndOf="@id/map_view"
+        android:focusable="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/zoomIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        android:tint="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/zoomOut"
+        app:layout_constraintEnd_toEndOf="@id/map_view"
+        android:focusable="true" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/zoomOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/fab_margin"
+        android:clickable="true"
+        android:tint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@id/map_view"
+        app:layout_constraintEnd_toEndOf="@id/map_view"
+        android:focusable="true" />
+
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/map_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

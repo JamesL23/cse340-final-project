@@ -11,7 +11,13 @@
     <string name="new_text">New…</string>
     <string name="block_info">%1$s Sets x %2$s Reps @ %3$s Weight</string>
     <string name="save">Save</string>
-    <string name="add_new_exercise"><i>Add new exercise…</i></string>
+    <string name="add_new_exercise">Add new exercise…</string>
+    <string name="location_screen_title">Set a reminder location</string>
+    <string name="location_screen_description">
+        Get location-based reminders to log your workouts! When a
+        location is set, the application will send a notification if it detects you are within 50
+        meters of that location.\n(Feature not implemented in demo)
+    </string>
 
     <string name="unimplemented">Not yet implemented</string>
     <string name="clear_all">Cleared!</string>
