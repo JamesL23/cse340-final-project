@@ -17,6 +17,7 @@
     <TextView
         android:id="@+id/back_button_top_bar_text"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:textSize="@dimen/top_text_size" />
 </LinearLayout>
