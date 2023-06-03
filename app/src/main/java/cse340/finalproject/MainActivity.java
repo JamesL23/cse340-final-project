@@ -135,9 +135,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.fab_add_exercise).setOnClickListener(
                 v -> startAddExerciseIntent()
         );
+        findViewById(R.id.fab_clear).setOnClickListener(
+                v -> clearAll()
+        );
 
         findViewById(R.id.main_screen_menu_button).setOnClickListener(v -> unimplemented());
-
         findViewById(R.id.main_screen_left_arrow).setOnClickListener(v -> unimplemented());
         findViewById(R.id.main_screen_current_date).setOnClickListener(v -> unimplemented());
         findViewById(R.id.main_screen_right_arrow).setOnClickListener(v -> unimplemented());
@@ -194,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         prefEdit.apply();
         LinearLayout cardContainer = findViewById(R.id.exercise_cards_container);
         cardContainer.removeAllViews();
-        Toast.makeText(this, getResources().getString(R.string.clear_all),
+        Toast.makeText(this, getResources().getString(R.string.clear_all_result),
                 Toast.LENGTH_SHORT).show();
     }
 

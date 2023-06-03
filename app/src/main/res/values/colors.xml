@@ -13,9 +13,8 @@
 
     <!-- To be honest I do not like this color but accessibility scanner was (sometimes) throwing a
     fit about other colors I tried and I'm running out of time here -->
-    <!-- Basically all these colors down here are accessibility changes with varying degrees of
-     aesthetic sensibility (I think a lot of these look very ugly but the accessibility scanner
-     thinks the contrast is better) -->
+    <!-- Basically all these colors down here are changes to appease the accessibility scanner with
+    varying degrees of aesthetic sensibility -->
     <color name="buttonColor">#ECECEC</color>
 
     <!-- I'm especially not a fan of being forced onto this fabColor by the accessibility scanner

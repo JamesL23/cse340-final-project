@@ -33,5 +33,7 @@
     <string name="cancel">Cancel</string>
 
     <string name="unimplemented">Not yet implemented</string>
-    <string name="clear_all">Cleared!</string>
+    <string name="clear">Clear</string>
+    <string name="clear_all">Clear current workout log</string>
+    <string name="clear_all_result">Cleared!</string>
 </resources>
