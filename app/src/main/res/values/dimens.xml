@@ -10,4 +10,5 @@
     <dimen name="text_field_text_size">15sp</dimen>
     <dimen name="exercise_choice_height">50dp</dimen>
     <dimen name="exercise_choice_text_size">10sp</dimen>
+    <dimen name="crosshair_size">30dp</dimen>
 </resources>

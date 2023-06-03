@@ -136,15 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 v -> startAddExerciseIntent()
         );
 
-        findViewById(R.id.main_screen_menu_button).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // TODO this should not clearAll
-                        clearAll();
-                    }
-                }
-        );
+        findViewById(R.id.main_screen_menu_button).setOnClickListener(v -> unimplemented());
 
         findViewById(R.id.main_screen_left_arrow).setOnClickListener(v -> unimplemented());
         findViewById(R.id.main_screen_current_date).setOnClickListener(v -> unimplemented());
