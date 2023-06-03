@@ -208,15 +208,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Check whether the user has granted location permissions, request if not
-     *
-     * @return true if location permissions granted, false otherwise
-     */
-    private boolean checkLocationPermissions() {
-        return false;
-    }
-
-    /**
      *  Raise an Alert if the user denied location permissions.
      *
      *  Borrowed from sensing-and-location exercise
