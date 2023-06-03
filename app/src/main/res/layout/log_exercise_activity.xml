@@ -22,92 +22,49 @@
         app:layout_constraintTop_toBottomOf="@id/add_exercise_screen_top_bar_divider"
         app:layout_constraintStart_toStartOf="parent"
         android:orientation="vertical">
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/sets_logging"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/sets_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/sets_field"
-                android:text="@string/number_sets"
-                android:textSize="@dimen/text_field_text_size"/>
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/sets_field"
-                android:layout_width="@dimen/text_field_width"
-                android:layout_height="@dimen/text_field_height"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/sets_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:hint="@string/number_sets"
-                android:textSize="@dimen/text_field_text_size"
-                android:inputType="number" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/reps_logging"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/reps_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/reps_field"
-                android:text="@string/number_reps"
-                android:textSize="@dimen/text_field_text_size"/>
-            <EditText
-                android:id="@+id/reps_field"
-                android:layout_width="@dimen/text_field_width"
-                android:layout_height="@dimen/text_field_height"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/reps_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:hint="@string/number_reps"
-                android:textSize="@dimen/text_field_text_size"
-                android:inputType="number" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/weight_logging"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/weight_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/weight_field"
-                android:text="@string/amount_weight"
-                android:textSize="@dimen/text_field_text_size"/>
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/weight_field"
-                android:layout_width="@dimen/text_field_width"
-                android:layout_height="@dimen/text_field_height"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/weight_text"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:hint="@string/amount_weight"
-                android:textSize="@dimen/text_field_text_size"
-                android:inputType="number"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/sets_field"
+            android:layout_width="@dimen/text_field_width"
+            android:layout_height="@dimen/text_field_height"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/number_sets"
+            android:textColorHint="@color/editTextHintColor"
+            android:textSize="@dimen/text_field_text_size"
+            android:inputType="number" />
+        <EditText
+            android:id="@+id/reps_field"
+            android:layout_width="@dimen/text_field_width"
+            android:layout_height="@dimen/text_field_height"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/number_reps"
+            android:textColorHint="@color/editTextHintColor"
+            android:textSize="@dimen/text_field_text_size"
+            android:inputType="number" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/weight_field"
+            android:layout_width="@dimen/text_field_width"
+            android:layout_height="@dimen/text_field_height"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/amount_weight"
+            android:textColorHint="@color/editTextHintColor"
+            android:textSize="@dimen/text_field_text_size"
+            android:inputType="number"/>
 
         <Button
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/save" />
+            android:text="@string/save"
+            android:backgroundTint="@color/buttonColor"/>
     </LinearLayout>
 
 

@@ -23,7 +23,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/hamburger_menu"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/menu"
+            android:backgroundTint="@color/buttonColor"/>
 
         <LinearLayout
             android:id="@+id/main_screen_date_nav"
@@ -40,12 +41,14 @@
                 android:layout_height="@dimen/button_size"
                 android:scaleType="fitCenter"
                 android:contentDescription="@string/left_arrow"
-                app:srcCompat="@drawable/arrow_left" />
+                app:srcCompat="@drawable/arrow_left"
+                android:backgroundTint="@color/buttonColor"/>
 
             <Button
                 android:id="@+id/main_screen_current_date"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_size"/>
+                android:layout_height="@dimen/button_size"
+                android:backgroundTint="@color/buttonColor"/>
             <!-- Button text specified by today's date in onCreate -->
 
             <ImageButton
@@ -54,7 +57,8 @@
                 android:layout_height="@dimen/button_size"
                 android:scaleType="fitCenter"
                 android:contentDescription="@string/right_arrow"
-                app:srcCompat="@drawable/arrow_right" />
+                app:srcCompat="@drawable/arrow_right"
+                android:backgroundTint="@color/buttonColor"/>
         </LinearLayout>
 
         <ImageButton
@@ -65,7 +69,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/location"
-            app:srcCompat="@drawable/map_marker" />
+            app:srcCompat="@drawable/map_marker"
+            android:backgroundTint="@color/buttonColor"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -110,5 +115,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"
+        android:backgroundTint="@color/fabColor"
+        app:borderWidth="0dp"
         android:src="@drawable/plus"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

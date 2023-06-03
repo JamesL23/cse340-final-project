@@ -12,7 +12,8 @@
         android:layout_height="@dimen/button_size"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/arrow_left"
-        android:contentDescription="@string/exit"/>
+        android:contentDescription="@string/exit"
+        android:backgroundTint="@color/buttonColor"/>
 
     <TextView
         android:id="@+id/back_button_top_bar_text"

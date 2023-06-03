@@ -5,6 +5,7 @@
     <string name="right_arrow">Right Arrow</string>
     <string name="location">Location</string>
     <string name="exit">Exit</string>
+    <string name="info">Info</string>
     <string name="add_exercise_screen_title">Add an Exercise</string>
     <string name="record_exercise_fab">Record a New Exercise</string>
     <string name="logging_exercise_title">Logging: %1$s</string>
