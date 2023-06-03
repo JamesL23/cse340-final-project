@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "cse340.finalproject"
-        minSdk 24
+        minSdk 26
         //noinspection ExpiredTargetSdkVersion
         targetSdk 31
         versionCode 1
