@@ -19,7 +19,7 @@ import java.util.List;
 public class AddExerciseActivity extends AppCompatActivity {
 
     private static final List<String> EXERCISES = Collections.unmodifiableList(
-            Arrays.asList("Back squat", "Bench press", "Deadlift"));;
+            Arrays.asList("Back squat", "Bench press", "Deadlift"));
 
     /**
      * Bundle used to transfer name of selected exercise to the log exercise screen.

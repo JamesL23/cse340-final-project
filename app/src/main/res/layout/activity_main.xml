@@ -22,6 +22,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/hamburger_menu"
             app:srcCompat="@drawable/menu" />
 
         <LinearLayout
@@ -38,6 +39,7 @@
                 android:layout_width="@dimen/button_size"
                 android:layout_height="@dimen/button_size"
                 android:scaleType="fitCenter"
+                android:contentDescription="@string/left_arrow"
                 app:srcCompat="@drawable/arrow_left" />
 
             <Button
@@ -51,6 +53,7 @@
                 android:layout_width="@dimen/button_size"
                 android:layout_height="@dimen/button_size"
                 android:scaleType="fitCenter"
+                android:contentDescription="@string/right_arrow"
                 app:srcCompat="@drawable/arrow_right" />
         </LinearLayout>
 
@@ -61,6 +64,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@string/location"
             app:srcCompat="@drawable/map_marker" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

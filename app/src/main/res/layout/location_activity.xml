@@ -76,6 +76,7 @@
         app:layout_constraintBottom_toTopOf="@id/zoomIn"
         app:layout_constraintEnd_toEndOf="@id/map_view"
         android:focusable="true"
+        android:contentDescription="@string/find_my_location"
         android:src="@drawable/ic_baseline_my_location_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -87,6 +88,7 @@
         app:layout_constraintBottom_toTopOf="@id/zoomOut"
         app:layout_constraintEnd_toEndOf="@id/map_view"
         android:focusable="true"
+        android:contentDescription="@string/zoom_in"
         android:src="@drawable/ic_baseline_zoom_in_24" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -98,6 +100,7 @@
         app:layout_constraintBottom_toBottomOf="@id/map_view"
         app:layout_constraintEnd_toEndOf="@id/map_view"
         android:focusable="true"
+        android:contentDescription="@string/zoom_out"
         android:src="@drawable/ic_baseline_zoom_out_24" />
 
     <Button

@@ -45,7 +45,8 @@
                 app:layout_constraintStart_toEndOf="@id/sets_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:hint="@string/number_sets"
-                android:textSize="@dimen/text_field_text_size"/>
+                android:textSize="@dimen/text_field_text_size"
+                android:inputType="number" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -71,7 +72,8 @@
                 app:layout_constraintStart_toEndOf="@id/reps_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:hint="@string/number_reps"
-                android:textSize="@dimen/text_field_text_size"/>
+                android:textSize="@dimen/text_field_text_size"
+                android:inputType="number" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -97,7 +99,8 @@
                 app:layout_constraintStart_toEndOf="@id/weight_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:hint="@string/amount_weight"
-                android:textSize="@dimen/text_field_text_size"/>
+                android:textSize="@dimen/text_field_text_size"
+                android:inputType="number"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <Button

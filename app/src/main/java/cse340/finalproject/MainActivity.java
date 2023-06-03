@@ -1,11 +1,5 @@
 package cse340.finalproject;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -18,6 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -142,26 +142,23 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.main_screen_current_date).setOnClickListener(v -> unimplemented());
         findViewById(R.id.main_screen_right_arrow).setOnClickListener(v -> unimplemented());
         findViewById(R.id.main_screen_location_button).setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        // Only proceed to location activity if location permissions granted
-                        // otherwise, request permissions
-                        if (ActivityCompat.checkSelfPermission(v.getContext(),
-                                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
-                                ActivityCompat.checkSelfPermission(v.getContext(),
-                                        Manifest.permission.ACCESS_COARSE_LOCATION) ==
-                                        PackageManager.PERMISSION_GRANTED) {
-                            // Granted; proceed to location activity
-                            Intent intent = new Intent(v.getContext(), LocationActivity.class);
-                            startActivity(intent);
-                        } else {
-                            // Request permissions
-                            locationPermissionRequest.launch(new String[] {
-                                    Manifest.permission.ACCESS_FINE_LOCATION,
-                                    Manifest.permission.ACCESS_COARSE_LOCATION
-                            });
-                        }
+                v -> {
+                    // Only proceed to location activity if location permissions granted
+                    // otherwise, request permissions
+                    if (ActivityCompat.checkSelfPermission(v.getContext(),
+                            Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+                            ActivityCompat.checkSelfPermission(v.getContext(),
+                                    Manifest.permission.ACCESS_COARSE_LOCATION) ==
+                                    PackageManager.PERMISSION_GRANTED) {
+                        // Granted; proceed to location activity
+                        Intent intent = new Intent(v.getContext(), LocationActivity.class);
+                        startActivity(intent);
+                    } else {
+                        // Request permissions
+                        locationPermissionRequest.launch(new String[] {
+                                Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_COARSE_LOCATION
+                        });
                     }
                 }
         );

@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">James Liu\'s \"Context-aware\" Workout Tracker</string>
     <string name="hamburger_menu">Hamburger Menu</string>
+    <string name="left_arrow">Left Arrow</string>
+    <string name="right_arrow">Right Arrow</string>
+    <string name="location">Location</string>
     <string name="exit">Exit</string>
     <string name="add_exercise_screen_title">Add an Exercise</string>
     <string name="record_exercise_fab">Record a New Exercise</string>
@@ -13,6 +16,9 @@
     <string name="save">Save</string>
     <string name="add_new_exercise">Add new exercise…</string>
     <string name="location_screen_title">Set a reminder location</string>
+    <string name="find_my_location">Find My Location</string>
+    <string name="zoom_in">Zoom In</string>
+    <string name="zoom_out">Zoom Out</string>
     <string name="location_screen_description">
         Get location-based reminders to log your workouts! When a location is set, the application
         will send a notification if it detects you are within 50 meters of that location.\n
