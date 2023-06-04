@@ -18,6 +18,9 @@ import java.util.List;
 
 public class AddExerciseActivity extends AppCompatActivity {
 
+    /**
+     * Static list of exercises the user can choose from
+     */
     private static final List<String> EXERCISES = Collections.unmodifiableList(
             Arrays.asList("Back squat", "Bench press", "Deadlift"));
 

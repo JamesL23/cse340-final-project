@@ -12,6 +12,12 @@ import java.util.List;
 @SuppressLint("ViewConstructor")
 public class ExerciseCardView extends FrameLayout {
 
+    /**
+     * ExerciseCardView constructor
+     *
+     * @param context Context to create the view in
+     * @param e ExerciseBlock with information to include in the view
+     */
     public ExerciseCardView(Context context, ExerciseBlock e) {
         super(context);
         LayoutInflater inflater = LayoutInflater.from(context);

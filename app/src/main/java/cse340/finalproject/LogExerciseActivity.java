@@ -14,10 +14,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class LogExerciseActivity extends AppCompatActivity {
 
+    /**
+     * String representing the number of sets (the exercise kind) done
+     */
     private String sets;
 
+    /**
+     * String representing number of reps performed of the exercise
+     */
     private String reps;
 
+    /**
+     * String representing amount of weight used for the exercise
+     */
     private String weight;
 
     /**

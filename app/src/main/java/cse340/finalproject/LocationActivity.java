@@ -136,6 +136,9 @@ public class LocationActivity extends AppCompatActivity {
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
     }
 
+    /**
+     * Initialize map functionality for this view
+     */
     private void initMap() {
         mMapView = findViewById(R.id.map_view);
         FloatingActionButton zoomIn = findViewById(R.id.zoomIn);
@@ -186,6 +189,9 @@ public class LocationActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initialize location tracking functionality in this view
+     */
     private void initLocation() {
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -208,7 +214,13 @@ public class LocationActivity extends AppCompatActivity {
                 Looper.myLooper());
     }
 
+    /**
+     * Displays an error dialog asking the user to enable location permissions
+     */
     private void showPermissionErrorAlert() {
+        // This should rarely get called because the main screen prevents users from reaching the
+        // location screen if permissions are not granted, but it is possible to disable the
+        // permission while using the app.
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setPositiveButton(getString(R.string.go_to_settings),
                 (dialog, id) -> {
