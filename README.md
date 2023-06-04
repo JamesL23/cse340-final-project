@@ -21,7 +21,7 @@ As per step 1 of the
 the public access key must be placed in `app/src/main/res/values/mapbox.xml`:
 ```
 <resources>
-<string name="mapbox_access_token"></string>
+   <string name="mapbox_access_token"></string>
 </resources>
 ```
 and the private access key should be placed in a global gradle.properties file (`C:\Users\<username>\.gradle`)
