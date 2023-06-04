@@ -37,7 +37,8 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Grant permission popup asking users to grant location accesses.
      *
-     * Original Source: https://developer.android.com/training/location/permissions
+     * Original Source:
+     * <a href="https://developer.android.com/training/location/permissions">...</a>
      * Found from sensing-and-location exercise
      */
     private final ActivityResultLauncher<String[]> locationPermissionRequest =
