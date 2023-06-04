@@ -21,7 +21,7 @@ As per step 1 of the
 the public access key must be placed in `app/src/main/res/values/mapbox.xml`:
 ```
 <resources>
-<string name="mapbox_access_token"></string>
+   <string name="mapbox_access_token"></string>
 </resources>
 ```
 and the private access key should be placed in a global gradle.properties file (`C:\Users\<username>\.gradle`)
@@ -32,7 +32,7 @@ in the format `MAPBOX_SECRET_TOKEN=<YOUR_SECRET_TOKEN>`.
 
 I did not realize any of my activities would need any sort of shared functionality, so I did not
 leverage the power of the inheritance hierarchy at all! Sorry!\
-However, here's an ordering for looking through the codebase that I think might make sense:\
+However, here's an ordering for looking through the codebase that I think might make sense:
 
 1. MainActivity - The main screen
    1. `app/src/main/java/cse340/finalproject/MainActivity.java`
